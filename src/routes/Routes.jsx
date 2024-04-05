@@ -15,7 +15,8 @@ import Home from "../pages/home/Home";
       children:[
         {
             path:"/",
-            element:<Home></Home>
+            element:<Home></Home>,
+         
         }
       ]
     },

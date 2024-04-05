@@ -8,6 +8,7 @@ export default {
       },
       colors: {
         "text-title": "#403F3F",
+        paragraph: "#9F9F9F",
       },
     },
   },
