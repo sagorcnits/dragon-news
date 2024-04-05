@@ -24,11 +24,13 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Item 1</a>
+              <a>Home</a>
             </li>
-
             <li>
-              <a>Item 3</a>
+              <a>About</a>
+            </li>
+            <li>
+              <a>Carrer</a>
             </li>
           </ul>
         </div>
@@ -38,21 +40,26 @@ const Navbar = () => {
           <li>
             <a>Home</a>
           </li>
-          <li><a>About</a></li>
+          <li>
+            <a>About</a>
+          </li>
           <li>
             <a>Career</a>
           </li>
         </ul>
       </div>
       <div className="navbar-end flex gap-2">
-      <div className="w-10 rounded-full">
-          <img className="rounded-full" alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+        <div className="w-10 rounded-full">
+          <img
+            className="rounded-full"
+            alt="Tailwind CSS Navbar component"
+            src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+          />
         </div>
-        <a className="px-7 py-2 bg-[#403F3F] text-white cursor-pointer">Login</a>
+        <a className="px-7 py-2 bg-[#403F3F] text-white cursor-pointer">
+          Login
+        </a>
       </div>
-
-
-    
     </div>
   );
 };
