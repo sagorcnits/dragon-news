@@ -5,6 +5,10 @@ import LoginWith from "../../components/LoginWith";
 import Logo from "../../components/Logo";
 
 const Details = () => {
+
+
+
+
   return (
     <div className="max-w-6xl mx-auto">
       <Logo></Logo>
