@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
-import { FaGithub } from "react-icons/fa";
-import { IoLogoGoogle } from "react-icons/io";
 import { NavLink } from "react-router-dom";
+import bgImg from "../../assets/bg.png";
 import Card from "../../components/Card";
+import LoginWith from "../../components/LoginWith";
 import Logo from "../../components/Logo";
 import NewsCard from "../../components/NewsCard";
 import Navbar from "../shered/Navbar";
@@ -28,9 +28,7 @@ const Home = () => {
 
   return (
     <div className="max-w-6xl mx-auto pb-20">
-      <div className="flex justify-center items-center my-6">
-        <Logo></Logo>
-      </div>
+      <Logo></Logo>
       <div className="bg-[#F3F3F3] flex gap-5 items-center p-4 rounded-sm">
         <button className="px-7 py-2 bg-[#D72050] text-white font-poppins">
           Latest
@@ -68,12 +66,25 @@ const Home = () => {
             <NewsCard key={id} news={news}></NewsCard>
           ))}
         </div>
-        <div className="font-poppins">
-          <h1 className="font-bold text-text-title">Login With</h1>
-          <div  className="mt-4">
-            <button className="flex gap-2 items-center border py-2 px-7 w-full text-center"> <IoLogoGoogle></IoLogoGoogle> Login With Google</button>
-            <button className="flex gap-2 mt-4 items-center border py-2 px-7 w-full text-center"> <FaGithub></FaGithub> Login With Github</button>
-           
+        <div>
+          <LoginWith></LoginWith>
+
+          <div
+            className="h-[500px] mt-4 flex items-center"
+            style={{ backgroundImage: `url(${bgImg})` }}
+          >
+            <div className="space-y-4  text-white text-center font-poppins">
+              <h1 className="text-[30px] font-bold">
+                Create an Amazing Newspaper
+              </h1>
+              <p>
+                Discover thousands of options, easy to customize layouts,
+                one-click to import demo and much more.
+              </p>
+              <button className="bg-[#D72050] px-6 py-3 text-white font-poppins font-bold">
+                Learn More
+              </button>
+            </div>
           </div>
         </div>
       </div>

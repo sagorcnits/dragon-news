@@ -2,9 +2,10 @@
 
 
 import {
-    createBrowserRouter
+  createBrowserRouter
 } from "react-router-dom";
 import Root from "../layout/Root";
+import Details from "../pages/details/Details";
 import Home from "../pages/home/Home";
 
 
@@ -17,6 +18,10 @@ import Home from "../pages/home/Home";
             path:"/",
             element:<Home></Home>,
          
+        },
+        {
+          path:'/details',
+          element:<Details></Details>
         }
       ]
     },
