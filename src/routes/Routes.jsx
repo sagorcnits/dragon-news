@@ -26,7 +26,7 @@ import Register from "../pages/register/Register";
         {
           path:'/details/:id',
           element:<PrivateRoute><Details></Details></PrivateRoute> ,
-          loader: () => fetch('./public/data/news.json')
+          loader: () => fetch('./news.json')
         },
 
         {

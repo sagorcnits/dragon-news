@@ -15,7 +15,7 @@ const Home = () => {
   const [filterData, setFilterData] = useState([]);
 
   useEffect(() => {
-    fetch("../public/data/news.json")
+    fetch("./news.json")
       .then((res) => res.json())
       .then((data) => {
         setNewsData(data);
@@ -24,7 +24,7 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    fetch("../public/data/categories.json")
+    fetch("./categories.json")
       .then((res) => res.json())
       .then((data) => setCategoryData(data));
   }, []);
@@ -56,13 +56,13 @@ const Home = () => {
           <ul className="mt-4">
             {categoryData.map((category, id) => {
               return (
-                <NavLink >
+                <NavLink key={id}>
                   <li
                     onClick={() => handleData(id)}
                     key={id}
                     className="p-2 text-center font-bold rounded-sm  text-paragraph hover:bg-black cursor-pointer"
                   >
-                    <a> {category.name}</a>
+                   {category.name}
                   </li>
                 </NavLink>
               );
