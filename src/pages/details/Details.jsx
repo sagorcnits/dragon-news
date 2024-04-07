@@ -1,10 +1,13 @@
 import { FaArrowLeft } from "react-icons/fa6";
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useLocation, useParams } from "react-router-dom";
 import Card from "../../components/Card";
 import LoginWith from "../../components/LoginWith";
 import Logo from "../../components/Logo";
 
 const Details = () => {
+  // const [newsData, setNewsData] = useState([]);
+  const location = useLocation();
+  console.log(location);
   const paramsId = useParams();
   const allNewsData = useLoaderData();
   const findData = allNewsData.find((news) => news._id === paramsId.id);

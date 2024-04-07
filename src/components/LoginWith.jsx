@@ -1,18 +1,22 @@
+import { useContext } from "react";
 import { FaFacebookF, FaGithub, FaInstagram } from "react-icons/fa";
 import { IoLogoGoogle } from "react-icons/io";
 import { TbBrandTwitterFilled } from "react-icons/tb";
 import quik1Img from "../assets/qZone1.png";
 import quik2Img from "../assets/qZone2.png";
 import quik3Img from "../assets/qZone3.png";
+import { AuthContext } from "../authProvider/AuthProvider";
 const LoginWith = () => {
+
+  const {googleLogin,githubLogin} = useContext(AuthContext)
   return (
     <div className="font-poppins mt-4 md:mt-0">
       <h1 className="font-bold text-text-title">Login With</h1>
       <div className="mt-4">
-        <button className="flex gap-2 items-center border py-2 px-7 w-full text-center">
+        <button onClick={googleLogin} className="flex gap-2 items-center border py-2 px-7 w-full text-center">
           <IoLogoGoogle></IoLogoGoogle> Login With Google
         </button>
-        <button className="flex gap-2 mt-4 items-center border py-2 px-7 w-full text-center">
+        <button onClick={githubLogin} className="flex gap-2 mt-4 items-center border py-2 px-7 w-full text-center">
           <FaGithub></FaGithub> Login With Github
         </button>
       </div>

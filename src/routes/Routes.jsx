@@ -4,6 +4,7 @@
 import {
   createBrowserRouter
 } from "react-router-dom";
+import PrivateRoute from "../components/PrivateRoute";
 import Root from "../layout/Root";
 import Details from "../pages/details/Details";
 import Home from "../pages/home/Home";
@@ -24,7 +25,7 @@ import Register from "../pages/register/Register";
       
         {
           path:'/details/:id',
-          element:<Details></Details>,
+          element:<PrivateRoute><Details></Details></PrivateRoute> ,
           loader: () => fetch('./public/data/news.json')
         },
 

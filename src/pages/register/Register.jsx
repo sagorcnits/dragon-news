@@ -1,7 +1,36 @@
-
+import { useContext, useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from "../../authProvider/AuthProvider";
 import Navbar from "../shered/Navbar";
 const Register = () => {
+  const { createUser, user } = useContext(AuthContext);
+  const [accept, setAccept] = useState(false);
 
+  const navigate = useNavigate()
+
+  const handleCreateUser = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const password = formData.get("password");
+
+    if (!accept) {
+      alert("Please term accept")
+      return;
+    }
+
+    createUser(email, password)
+      .then((res) => {
+        const user = res.user;
+        // console.log(user);
+        navigate('/')
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Email Already used")
+      });
+  };
 
   return (
     <div className="max-w-6xl min-h-screen mx-auto">
@@ -11,7 +40,7 @@ const Register = () => {
           <h1 className="text-center text-text-title text-[20px] font-bold mt-6">
             Register your account
           </h1>
-          <form className="card-body ">
+          <form className="card-body" onSubmit={handleCreateUser}>
             <div className="form-control border-t pt-3">
               <label className="label">
                 <span className="label-text font-bold">Your Name</span>
@@ -20,6 +49,7 @@ const Register = () => {
                 type="text"
                 placeholder="Enter your name"
                 className="input input-bordered"
+                name="name"
                 required
               />
             </div>
@@ -31,6 +61,7 @@ const Register = () => {
                 type="email"
                 placeholder="Enter your email address"
                 className="input input-bordered"
+                name="email"
                 required
               />
             </div>
@@ -42,15 +73,15 @@ const Register = () => {
                 type="password"
                 placeholder="Enter your password"
                 className="input input-bordered"
+                name="password"
                 required
               />
-              <div className="form-control py-2">
-                <label className="cursor-pointer flex items-center gap-4">
+              <div className="form-control py-2" >
+                <label className="cursor-pointer flex items-center gap-4" >
                   <input
                     type="checkbox"
-                    defaultChecked
                     className="checkbox checkbox-info"
-                  />
+                    onClick={ () => setAccept(!accept) } />
                   <span className="label-text">Accept Term & Conditions</span>
                 </label>
               </div>
