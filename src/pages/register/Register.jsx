@@ -1,13 +1,7 @@
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+
 import Navbar from "../shered/Navbar";
 const Register = () => {
 
-    let location = useLocation();
-    useEffect(()=> {
-     let title = `dragon-news ${location.pathname}`;
-     document.title  =  title.replace('/','- ')
-    },[location])
 
   return (
     <div className="max-w-6xl min-h-screen mx-auto">

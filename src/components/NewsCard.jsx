@@ -2,9 +2,9 @@ import { CiBookmark, CiShare2 } from "react-icons/ci";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { Link } from "react-router-dom";
 const NewsCard = ({ news }) => {
-  const { rating, total_view, title, author, image_url, details } = news;
+  const { _id,rating, total_view, title, author, image_url, details } = news;
   return (
-    <Link to='/details'>
+    <Link to={`/details/${_id}`}>
       <div className="mt-4 border font-poppins rounded-sm cursor-pointer">
         <div className="bg-[#E7E7E7] p-4 flex items-center justify-between">
           <div className="flex gap-2 items-center">

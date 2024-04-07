@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
+import { NavLink } from "react-router-dom";
 import bgImg from "../../assets/bg.png";
 import Card from "../../components/Card";
 import LoginWith from "../../components/LoginWith";
 import Logo from "../../components/Logo";
 import NewsCard from "../../components/NewsCard";
 import Navbar from "../shered/Navbar";
+import "./home.css";
 
 const Home = () => {
   const [categoryData, setCategoryData] = useState([]);
@@ -21,8 +23,6 @@ const Home = () => {
       });
   }, []);
 
-  //  console.log(categoryData)
-
   useEffect(() => {
     fetch("../public/data/categories.json")
       .then((res) => res.json())
@@ -30,15 +30,12 @@ const Home = () => {
   }, []);
 
   const handleData = (id) => {
-    // console.log("Data", id);
     const categoryNewsData = newsData.filter(
       (news) => +news.category_id === id
     );
-    // console.log(categoryNewsData);
+
     setFilterData(categoryNewsData);
   };
-
-  console.log(filterData);
 
   return (
     <div className="max-w-6xl mx-auto pb-20">
@@ -59,13 +56,15 @@ const Home = () => {
           <ul className="mt-4">
             {categoryData.map((category, id) => {
               return (
-                <li
-                  onClick={() => handleData(id)}
-                  key={id}
-                  className="p-2 text-center font-bold rounded-sm  text-paragraph hover:bg-black cursor-pointer"
-                >
-                  {category.name}
-                </li>
+                <NavLink >
+                  <li
+                    onClick={() => handleData(id)}
+                    key={id}
+                    className="p-2 text-center font-bold rounded-sm  text-paragraph hover:bg-black cursor-pointer"
+                  >
+                    <a> {category.name}</a>
+                  </li>
+                </NavLink>
               );
             })}
           </ul>
@@ -75,9 +74,15 @@ const Home = () => {
         </div>
         <div className="col-span-2 font-poppins">
           <h1 className="text-text-title font-bold">Dragon News Home</h1>
-          {filterData.length > 0 ? filterData.slice(0, 4).map((news, id) => (
-            <NewsCard key={id} news={news}></NewsCard>
-          )) : <h1 className="text-center font-bold py-4 font-poppins text-[40px]">Sorry No Data Match This Category</h1>}
+          {filterData.length > 0 ? (
+            filterData
+              .slice(0, 4)
+              .map((news, id) => <NewsCard key={id} news={news}></NewsCard>)
+          ) : (
+            <h1 className="text-center font-bold py-4 font-poppins text-[40px]">
+              Sorry No Data Match This Category
+            </h1>
+          )}
         </div>
         <div>
           <LoginWith></LoginWith>

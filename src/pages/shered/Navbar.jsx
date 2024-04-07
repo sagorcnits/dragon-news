@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -41,7 +41,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <NavLink to='/'>
+          <NavLink to="/">
             <li>
               <a>Home</a>
             </li>
@@ -62,9 +62,11 @@ const Navbar = () => {
             src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
           />
         </div>
-        <a className="px-7 py-2 bg-[#403F3F] text-white cursor-pointer">
-          Login
-        </a>
+        <Link to="/login">
+          <a className="px-7 py-2 bg-[#403F3F] text-white cursor-pointer">
+            Login
+          </a>
+        </Link>
       </div>
     </div>
   );

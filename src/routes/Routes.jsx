@@ -21,9 +21,11 @@ import Register from "../pages/register/Register";
             element:<Home></Home>,
          
         },
+      
         {
-          path:'/details',
-          element:<Details></Details>
+          path:'/details/:id',
+          element:<Details></Details>,
+          loader: () => fetch('./public/data/news.json')
         },
 
         {
